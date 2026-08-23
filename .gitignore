@@ -1,0 +1,76 @@
+# Dependencies & Libraries
+node_modules/
+*/node_modules/
+frontend/node_modules/
+blockchain/node_modules/
+
+# Python Virtual Environments & Packages
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+backend/.venv/
+backend/env/
+
+# Python Cache & Compiled Files
+__pycache__/
+*/__pycache__/
+backend/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Build & Output Directories
+dist/
+build/
+out/
+.vite/
+frontend/dist/
+frontend/build/
+frontend/node_modules/.vite/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.pfx
+
+# Databases & Logs
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.sqlite3-journal
+
+# Operating System & IDE Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary Files & Archives
+*.tmp
+*.temp
+*.bak
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# System / IDE internal workspace artifacts
+.gemini/
