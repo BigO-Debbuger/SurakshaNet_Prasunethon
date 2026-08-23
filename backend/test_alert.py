@@ -4,9 +4,13 @@ import sys
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
+from dotenv import load_dotenv
 from composio import Composio
 
-COMPOSIO_API_KEY = "ak_xhEdApPVj-bJ2prIahSo"
+load_dotenv()
+
+COMPOSIO_API_KEY = os.getenv("COMPOSIO_API_KEY", "your_composio_api_key_here")
+SLACK_CHANNEL_ID = os.getenv("SLACK_CHANNEL_ID", "#surakshanet-alerts")
 composio_client = Composio(api_key=COMPOSIO_API_KEY)
 
 print("="*60)

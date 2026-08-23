@@ -3,10 +3,14 @@ import sys
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
+import os
+from dotenv import load_dotenv
 from composio import Composio
 
+load_dotenv()
+
 # Your API Key
-COMPOSIO_API_KEY = "ak_xhEdApPVj-bJ2prIahSo"
+COMPOSIO_API_KEY = os.getenv("COMPOSIO_API_KEY", "your_composio_api_key_here")
 
 # Initialize Composio client
 composio_client = Composio(api_key=COMPOSIO_API_KEY)

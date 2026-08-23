@@ -8,14 +8,14 @@ import {
   signOut 
 } from 'firebase/auth';
 
-// Replace these with your Firebase config
+// Firebase config loaded from environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyAxXb1GEmuAtRYZASwrcs6NOoxXq14kaKI",
-  authDomain: "surakshanet-bfcc3.firebaseapp.com",
-  projectId: "surakshanet-bfcc3",
-  storageBucket: "surakshanet-bfcc3.appspot.com",
-  messagingSenderId: "454391081115",
-  appId: "1:454391081115:web:58259f2f4ac35edaf13e3e"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "YOUR_FIREBASE_API_KEY",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "surakshanet-demo.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "surakshanet-demo",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "surakshanet-demo.appspot.com",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "123456789000",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:123456789000:web:abcdef1234567890"
 };
 
 const app = initializeApp(firebaseConfig);

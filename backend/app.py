@@ -32,25 +32,27 @@ from flask_cors import CORS
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
-from sqlalchemy import create_engine, Column, String, Text, DateTime, Float, Integer
-from sqlalchemy.orm import sessionmaker, declarative_base
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
 
 # Database Configuration
-DATABASE_URL = "postgresql+pg8000://surakshanet:surakshanet123@localhost:5432/surakshanet_db"
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+pg8000://surakshanet:your_postgres_password_here@localhost:5432/surakshanet_db")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 # Blockchain Configuration
-BLOCKCHAIN_URL = "http://localhost:3001"
+BLOCKCHAIN_URL = os.getenv("BLOCKCHAIN_URL", "http://localhost:3001")
 
 # Composio API Configuration
-COMPOSIO_API_KEY = "ak_xhEdApPVj-bJ2prIahSo" 
-SLACK_CHANNEL_ID = "#surakshanet-alerts"
+COMPOSIO_API_KEY = os.getenv("COMPOSIO_API_KEY", "your_composio_api_key_here")
+SLACK_CHANNEL_ID = os.getenv("SLACK_CHANNEL_ID", "#surakshanet-alerts")
 
 # Initialize the Composio Client
 composio_client = Composio(api_key=COMPOSIO_API_KEY)

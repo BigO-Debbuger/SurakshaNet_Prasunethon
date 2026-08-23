@@ -8,10 +8,10 @@ const app = express();
 app.use(express.json());
 
 // ----- Config  -----
-const ACCESS_TOKEN_SECRET = 'replace_this_with_strong_secret';
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || 'your_jwt_access_token_secret_here';
 const ACCESS_TOKEN_EXPIRES_IN = '5m';        // short-lived access token
 const REFRESH_TOKEN_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // ----- In-memory stores  -----
 // sessionStore maps sessionId -> { userId, currentRefreshToken, deviceId, expiresAt, createdAt }
@@ -177,12 +177,12 @@ import {
 // ---------------------------
 //  Firebase Config 
 const firebaseConfig = {
-  apiKey: "AIzaSyDUMMY-FIREBASE-KEY-DEMO123",
-  authDomain: "surakshanet-demo.firebaseapp.com",
-  projectId: "surakshanet-demo",
-  storageBucket: "surakshanet-demo.appspot.com",
-  messagingSenderId: "123456789000",
-  appId: "1:123456789000:web:abcdef1234567890"
+  apiKey: process.env.FIREBASE_API_KEY || "YOUR_FIREBASE_API_KEY",
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN || "surakshanet-demo.firebaseapp.com",
+  projectId: process.env.FIREBASE_PROJECT_ID || "surakshanet-demo",
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "surakshanet-demo.appspot.com",
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || "123456789000",
+  appId: process.env.FIREBASE_APP_ID || "1:123456789000:web:abcdef1234567890"
 };
 
 // Initialize Firebase App + Firestore
